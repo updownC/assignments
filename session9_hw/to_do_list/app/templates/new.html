@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'new.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+        <div id="new_1"><h1> Add New Task! </h1></div>
+        <div id="new_2">
+            <form method="POST">
+            {% csrf_token %}
+            <div id="new_21">
+                <div id="new_211"><label> Task: </label>
+                <input type='text' name='title' placeholder="제목"></div>
+                <div id="new_212"><label> Content:  </label>
+                <input type='text' name='content' placeholder="세부사항"></div>
+                <div id="new_213"><label> Due-date: </label>
+                <input type='date' name='due' placeholder="마감기한"></div>
+            </div>
+            <div id="new_22">
+                <button type='submit'> Add to the list </button>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

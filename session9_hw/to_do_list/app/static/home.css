@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        #f8b195, #f67280, #c06c84, #6c5b7b, #355c7d
+    );
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+}
+
+#main {
+    position: absolute;
+    top: 10%;
+    width: 30%;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 5%;
+}
+
+#title {
+    display: flex;
+    border-bottom: 5%;
+}
+
+#new {
+    display: flex;
+
+}
+
+#todos {
+    display: flex;
+    flex-direction: column;
+}
+
+#todo {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2%;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
+}
