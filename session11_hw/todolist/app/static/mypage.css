@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        #f8b195, #f67280, #c06c84, #6c5b7b, #355c7d
+    );
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+}
+
+#main {
+    position: absolute;
+    top: 10%;
+    width: 30%;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-radius: 5%;
+}
+
+#h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#todos {
+    padding-bottom: 10rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#todo {
+    display: flex;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+
+    justify-content: flex-start;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% load socialaccount %}
+    {% providers_media_js %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <title>제목</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <a class="nav-item" href="{% url 'home' %}"> Home </a>
+        {% if user.is_authenticated %}
+        <div class="nav-item"> Hello, {{user.username}}! </div>
+        <a class="nav-item" href="{% url 'mypage' %}"> My page </a>
+        <a class="nav-item" href="{% url 'logout' %}"> Logout </a>
+        {% else %}
+        <a class="nav-item" href="{% url 'login' %}"> Login </a>
+        <a class="nav-item" href="{% provider_login_url 'kakao' %}">Kakao Login</a>
+        <a class="nav-item" href="{% provider_login_url 'google' %}">Google Login</a>
+        <a class="nav-item" href="{% url 'signup' %}">Signup</a>
+        {% endif %}
+    </div>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

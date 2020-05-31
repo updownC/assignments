@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    {% block content %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'detail.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+    <div id="detail_1">
+        <div id="detail_11"><h1>{{todo.title}}</h1></div>
+        <div id="detail_11">{{todo.content}}</div>
+        <div id="detail_11">{{todo.due}}</div>
+    </div>
+    <div id="detail_2">
+    {% if user.is_authenticated and todo.author.pk == user.pk %}
+    <a href="{% url 'edit' todo.pk %}"> <button> Edit </button></a>
+    <a href="{% url 'delete' todo.pk %}"> <button>Delete </button></a>
+    {% endif %}
+    <a href="{% url 'home' %}"><button>Home</button></a>
+    </div>
+    
+    
+    <div id="comment_1">
+    {% for comment in todo.comments.all %}
+    <li> {{ comment.content }} </li>
+    {% if user.is_authenticated and comment.author.pk == user.pk %}
+    <a href="{% url 'delete_comment' todo.pk comment.pk %}"><button id="button">Delete</button></a>
+    {% endif %}
+    {% endfor %}
+    </div>
+
+    {% if user.is_authenticated %}
+    <div id="comment_2">
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="댓글을 입력하세요">
+        <button id="button" type="submit"> Comment </button>
+    </form>
+    </div>
+    </div>
+    {% endif %}
+    {% endblock content%}
+</body>
+</html>
