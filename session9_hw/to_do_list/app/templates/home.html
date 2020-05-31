@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'home.css' %}" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+        <div id="title"><h1>To-do-list!</h1></div>
+        <div id="todos">
+        {% for todo in todos %}
+        <a id="todo" href="{% url 'detail' todo.pk %}">
+            <span id="todo" class="material-icons">
+            check_circle_outline
+            </span>
+            {{todo.title}} 
+        </a>
+        {% endfor %}
+        </div>
+        <div id="new" ><a href="{% url 'new' %}"> <button> Create New Task </button></a></div>
+    </div>
+</body>
+</html>
