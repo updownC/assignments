@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    {% block content %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'edit.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+    <div id="main">
+        <div id="edit_1"><h1> Edit </h1></div>
+        <form method="POST">
+            {% csrf_token %}
+        <div id="edit_2">
+            <div id="edit_21">
+                <label> Task: </label>
+                <input type='text' value="{{todo.title}}" name='title' placeholder="Title">
+            </div>
+            <div id="edit_21">
+                <label> Content: </label>
+                <textarea name="content" cols="30" rows="10"> {{todo.content}} </textarea>
+            </div>
+            <div id="edit_21">
+                <label> Due-date: </label>
+                <input type='date' value="{{todo.due}}" name='due' placeholder="Due">
+            </div>
+        </div>
+        <div id="edit_3">
+            <button type='submit'> Edit </button></div>
+        </div>
+        </form>
+    </div>
+    {% endblock content%}
+</body>
+</html>

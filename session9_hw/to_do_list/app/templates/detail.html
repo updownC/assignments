@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'detail.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+    <div id="detail_1">
+        <div id="detail_11"><h1>{{todo.title}}</h1></div>
+        <div id="detail_11">{{todo.content}}</div>
+        <div id="detail_11">{{todo.due}}</div>
+    </div>
+    <div id="detail_2">
+    <a href="{% url 'edit' todo.pk %}"> <button> Edit </button></a>
+    <a href="{% url 'delete' todo.pk %}"> <button>Delete </button></a>
+    <a href="{% url 'home' %}"><button>Home</button></a>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    {% block content %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <link href="{% static 'mypage.css' %}" type="text/css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div id="main">
+    <div id="h2"> <h2>Posts by {{user.username}}: </h2></div>
+    <div id="todos">
+        {% for todo in todos %}
+        {% if user.is_authenticated and todo.author.pk == user.pk %}
+        <a id='todo' href="{% url 'detail' todo.pk %}"><span class="material-icons">
+            check_circle_outline
+            </span> {{todo.title}} </a>
+        {% endif %}
+    {% endfor %}
+    </div>
+    {% endblock content%}
+    </div>
+</body>
+</html>

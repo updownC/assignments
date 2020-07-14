@@ -1,0 +1,18 @@
+.nav-bar {
+    width: 100%;
+    background-color: rgba(146, 143, 143, 0.5);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+body {
+    margin: 0;
+}
+
+.nav-item {
+    display: flex;
+    color: black;
+    text-decoration: none;
+}

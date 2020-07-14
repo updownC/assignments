@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <h1> Welcome </h1>
+    {% if error %}
+    <h3 style="color:red;"> {{error}} </h3>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="ID">
+        <input type="password" name="password" placeholder="PW">
+        <button type="submit"> signup </button>
+    </form>
+    {% endblock content %}
+</body>
+</html>
