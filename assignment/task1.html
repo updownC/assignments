@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>javascript hello</h1>
+    <script>
+        const getRandomColor= ()=> {
+            const hexa='1234567890abcdef'
+            let bgColor = '#'
+            for(let i=0; i<6; i++)
+                bgColor += (hexa[Math.round(Math.random()*10)])
+            return bgColor
+
+        };
+        setInterval(()=> {
+            document.querySelector('body').style.backgroundColor = getRandomColor();
+        },100)
+    </script>
+</body>
+</html>
