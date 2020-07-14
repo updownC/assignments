@@ -10,11 +10,10 @@
     <script>
         const getRandomColor= ()=> {
             const hexa='1234567890abcdef'
-            const bgColor = ['#'];
-            for (let i = 0; i < 6; i++) {
-                bgColor.push(hexa[Math.ceil(Math.random()*10)]);
-            }
-            return bgColor.join("");
+            let bgColor = '#'
+            for(let i=0; i<6; i++)
+                bgColor += (hexa[Math.round(Math.random()*10)])
+            return bgColor
 
         };
         setInterval(()=> {
